@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.utils.generator.NumberGenerator;
+import racingcar.utils.generator.ForwardGenerator;
 import racingcar.utils.validator.NameValidator;
 
 public class Car {
@@ -12,8 +12,8 @@ public class Car {
         this.name = name;
     }
 
-    public void forward(NumberGenerator numberGenerator) {
-        if (numberGenerator.canForward()) {
+    public void forward(ForwardGenerator forwardGenerator) {
+        if (forwardGenerator.canForward()) {
             this.position += 1;
         }
     }

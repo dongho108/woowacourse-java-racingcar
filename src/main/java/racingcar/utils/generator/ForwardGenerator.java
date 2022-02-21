@@ -1,5 +1,5 @@
 package racingcar.utils.generator;
 
-public interface NumberGenerator {
+public interface ForwardGenerator {
     boolean canForward();
 }

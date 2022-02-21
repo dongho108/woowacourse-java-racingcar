@@ -10,13 +10,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racingcar.utils.generator.MovableNumberGenerator;
-import racingcar.utils.generator.NonMovableNumberGenerator;
-import racingcar.utils.generator.NumberGenerator;
+import racingcar.utils.generator.ForwardGenerator;
+import racingcar.utils.generator.MovableForwardGenerator;
+import racingcar.utils.generator.NonMovableForwardGenerator;
 
 class CarTest {
-    private final NumberGenerator movableNumberGenerator = new MovableNumberGenerator();
-    private final NumberGenerator nonMovableNumberGenerator = new NonMovableNumberGenerator();
+    private final ForwardGenerator movableForwardGenerator = new MovableForwardGenerator();
+    private final ForwardGenerator nonMovableForwardGenerator = new NonMovableForwardGenerator();
     private final Car car = new Car("pobi");
 
     @ParameterizedTest(name = "{index}: {1}")
@@ -39,14 +39,14 @@ class CarTest {
     @Test
     void 자동차_전진() {
         int position = car.getPosition();
-        car.forward(movableNumberGenerator);
+        car.forward(movableForwardGenerator);
         assertThat(car.getPosition()).isEqualTo(position + 1);
     }
 
     @Test
     void 자동차_정지() {
         int position = car.getPosition();
-        car.forward(nonMovableNumberGenerator);
+        car.forward(nonMovableForwardGenerator);
         assertThat(car.getPosition()).isEqualTo(position);
     }
 

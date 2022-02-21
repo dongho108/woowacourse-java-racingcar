@@ -7,14 +7,14 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import racingcar.utils.generator.MovableNumberGenerator;
-import racingcar.utils.generator.NumberGenerator;
+import racingcar.utils.generator.ForwardGenerator;
+import racingcar.utils.generator.MovableForwardGenerator;
 
 class CarsTest {
     private final Cars cars = new Cars();
     private Car car1;
     private Car car2;
-    private final NumberGenerator movableNumberGenerator = new MovableNumberGenerator();
+    private final ForwardGenerator movableForwardGenerator = new MovableForwardGenerator();
 
     @BeforeEach
     void initialize() {
@@ -26,14 +26,14 @@ class CarsTest {
 
     @Test
     void 단독_우승자() {
-        car1.forward(movableNumberGenerator);
+        car1.forward(movableForwardGenerator);
         Assertions.assertThat(cars.findWinnerNames()).containsExactly(car1.getName());
     }
 
     @Test
     void 공동_우승자() {
-        car1.forward(movableNumberGenerator);
-        car2.forward(movableNumberGenerator);
+        car1.forward(movableForwardGenerator);
+        car2.forward(movableForwardGenerator);
         Assertions.assertThat(cars.findWinnerNames()).containsExactly(car1.getName(), car2.getName());
     }
 }

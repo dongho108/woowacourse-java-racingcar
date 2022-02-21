@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import racingcar.utils.generator.NumberGenerator;
-import racingcar.utils.generator.RandomNumberGenerator;
+import racingcar.utils.generator.ForwardGenerator;
+import racingcar.utils.generator.RandomForwardGenerator;
 
 public class Cars {
     private final List<Car> cars = new ArrayList<>();
-    private final NumberGenerator numberGenerator = new RandomNumberGenerator();
+    private final ForwardGenerator forwardGenerator = new RandomForwardGenerator();
 
     public void add(List<String> carNames) {
         for (String carName : carNames) {
@@ -19,7 +19,7 @@ public class Cars {
 
     public void forward() {
         for (Car car : cars) {
-            car.forward(numberGenerator);
+            car.forward(forwardGenerator);
         }
     }
 

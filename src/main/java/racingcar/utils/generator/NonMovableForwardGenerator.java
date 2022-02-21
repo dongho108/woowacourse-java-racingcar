@@ -1,6 +1,6 @@
 package racingcar.utils.generator;
 
-public class NonMovableNumberGenerator implements NumberGenerator {
+public class NonMovableForwardGenerator implements ForwardGenerator {
     @Override
     public boolean canForward() {
         return false;
